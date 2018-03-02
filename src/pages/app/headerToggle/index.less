@@ -1,0 +1,41 @@
+@import '~utils/style/variables.less';
+
+.ant-layout-header {
+  height: 60px;
+  line-height: 60px;
+}
+.header {
+  padding: 8px 16px;
+  a {
+    color: @header-text-color;
+  }
+  .custom-trigger {
+    margin-top: 16px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+.header__right {
+  line-height: 42px;
+  padding: 3px 0;
+  font-size: 16px;
+  .anticon {
+    cursor: pointer;
+  }
+}
+
+.header-dark {
+  background-color: @dark;
+  color: rgba(255, 255, 255, .9);
+}
+
+.header-light {
+  background: @light;
+  color: #333;
+}
+
+.header-default {
+  background: @header-bg;
+  color: @header-text-color;
+}

@@ -1,0 +1,29 @@
+@import '~utils/style/variables.less';
+
+.footer {
+  padding: 10px;
+  line-height: 23px;
+  text-align: center;
+}
+
+.footer-dark {
+  background-color: @dark;
+  color: rgba(255, 255, 255, .9);
+}
+
+.footer-light {
+  background: @light;
+  color: #666;
+}
+
+.footer-default {
+  background: @footer-bg;
+  color: @footer-text-color;
+}
+
+.footer__logo {
+  margin-right: 60px;
+  > img {
+    vertical-align: top;
+  }
+}
