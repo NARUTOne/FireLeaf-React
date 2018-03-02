@@ -43,7 +43,6 @@ $ npm run build
 > 本项目默认安装了 antd-design
 
 - [antd-design](https://ant.design/docs/react/introduce-cn)
-- [脚手架使用xj-web-scaffold](http://wuzhong@172.168.0.114:8089/wuzhong/xj-web-scaffold.git)
 
 ## 日志
 

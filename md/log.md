@@ -157,9 +157,6 @@ let comment = <Layout  key="layout" className='layout-row'>
 
 `2017-10-31`
 
-- xj-web-scaffold 正式启动，并暂时不进行开源，放入内网gitLab 
-  地址: [xj-web-scaffold](http://172.168.0.114:8089/wuzhong/xj-web-scaffold)
-
 - 脚手架默认支持 `fontawesome` 图标 `<IconFont/>`， 补充 `antd` 的 `Icon`
 
 - 脚手架默认自带 `echarts` 支持组件 `<Recharts />`
