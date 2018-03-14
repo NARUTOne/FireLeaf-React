@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import { loginAction } from 'src/action/';
 
 import HeaderToggle from './headerToggle/';
-import Head from './head';
+// import Head from './head';
 import SiderCustom from './sider/';
 import Body from './body/';
 import Foot from './footer/';

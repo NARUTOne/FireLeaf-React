@@ -1,5 +1,5 @@
 # 更新日志 :bug:
-> :fire: xj-web-scaffold 更新日志
+> :fire: FileLeaf-React-Scaffold 更新日志
 
 ## v.0.5.3
 

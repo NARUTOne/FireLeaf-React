@@ -28,7 +28,7 @@
 		"spaced-comment": [2],
 		"jsx-quotes": [0],
 		"key-spacing": [2],
-		"camelcase": [2],
+		"camelcase": [0],
 		"comma-spacing": [2],
 		"react/jsx-filename-extension": [1, { "extensions": [".js"] }],
 		"global-require": [1],
