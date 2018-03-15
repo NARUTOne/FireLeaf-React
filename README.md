@@ -38,6 +38,43 @@ $ npm run build
 
 - [https://github.com/NARUTOne/redux-react-demo](https://github.com/NARUTOne/redux-react-demo)
 
+## 脚手架目录
+
+```
+
+|-- md                                 // 脚手架文档
+|-- script                             // 项目构建, 环境path, 主题等
+|-- src                                // 项目源码
+|   |-- action                         // redux的action
+|   |-- components                     // 业务组件
+|   |-- mock                           // 开发数据源
+|   |-- pages                          // 业务界面
+|       |-- app                        // 单页入口（布局）
+|       |-- home                       // 默认首页
+|       |-- notFound                   // 404页
+|       |-- template                   // react组件模板（简易）
+|       |-- ... 
+|   |-- reducer                        // redux的reducer                       
+|   |-- utils                          // 公共集合（配置，样式，工具）
+|       |-- style                      // 公共样式（less 变量）
+|       |-- config                     // 项目业务配置
+|       |-- tools                      // 工具方法
+|   |-- index                          // 项目入口
+|   |-- router                        // 路由配置
+|   |-- xhr_config                    // xhr组件全局配置
+|-- public                             // 项目静态文件
+|-- .babelrc                           // babel配置
+|-- .editorconfig                      // 定义代码格式
+|-- .eslintrc                          // eslint代码规范
+|-- .stylelintrc                       // stylelint样式规范
+|-- package.json                       // 项目基本信息
+|-- template.html                      // html 模板
+|-- webpack.base.config.js             // webpack基础配置
+|-- webpack.dev.config.js             // webpack开发配置
+|-- webpack.prod.config.js             // webpack生产配置
+
+```
+
 ## 参考
 
 > 本项目默认安装了 antd-design
