@@ -24,6 +24,14 @@
   opacity: .8;
 }
 
+// base
+* {
+	margin: 0;
+	padding: 0;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   margin-top: 1.3em;
@@ -50,13 +58,6 @@ a {
   }
 }
 
-* {
-	margin: 0;
-	padding: 0;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-}
-
 body {
   font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,13 +75,7 @@ ul, li {
   list-style: none;
 }
 
-// wz-css
-
-.text-overflow {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+// color
 
 .default-color {
   color: @default-color;
@@ -122,6 +117,7 @@ ul, li {
   color: #fff;
 }
 
+// 布局
 .t-center {
   text-align: center;
 }
@@ -146,6 +142,13 @@ ul, li {
     display:table;
     clear:both;
   }
+}
+
+// 显隐
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hide {
@@ -185,6 +188,16 @@ ul, li {
   margin: 0 8px !important;
 }
 
+// 距离， 大小
+.mg-r-1 {
+  margin-right: 8px;
+}
+
+.chart-box {
+  height: 300px;
+}
+
+// 其他
 .a-btn {
   padding: 8px 12px;
   border-radius: 5px;
@@ -194,6 +207,17 @@ ul, li {
   font-weight: 600;
 }
 
+.icon {
+  padding: 0 8px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// 个性化
+
+// 提示框
 .tooltips{
   position: absolute;
   max-width: 200px;
@@ -213,28 +237,7 @@ ul, li {
   z-index:4;
 }
 
-.mg-r-1 {
-  margin-right: 8px;
-}
-
-.chart-box {
-  height: 300px;
-}
-
-.text-overflow {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.icon {
-  padding: 0 8px;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
+// 表单校验
 .prop-name--required {
   position: relative;
   padding-left: 8px;
@@ -246,7 +249,6 @@ ul, li {
     color: @error-color;
   }
 }
-
 .error-border {
   border: 1px solid @error-color;
 }

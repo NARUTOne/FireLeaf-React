@@ -11,7 +11,7 @@ const IconFont = props => {
 };
 
 IconFont.propTypes = {
-  // 图标类型，http://fontawesome.io/icons/
+  // 图标类型，http://iconfont.cn
   type: PropTypes.string.isRequired
 };
 
