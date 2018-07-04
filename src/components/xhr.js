@@ -79,7 +79,7 @@ export default function xhr(options) {
 
   // data
   if(opt.method === 'POST' || opt.method === 'PUT') {
-    if (opt.headers['Content-Type'].indexOf('application/x-www-form-urlencoded') > 0) {
+    if (opt.headers['Content-Type'].indexOf('application/x-www-form-urlencoded') >= 0) {
       opt.body = setData(options.data) || {};
     } else {
       opt.body = options.data || {};
