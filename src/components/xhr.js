@@ -72,8 +72,18 @@ export default function xhr(options) {
     }
   };
 
+  // header
+  if (options.headers) {
+    opt.headers = Object.assign({}, opt.headers, options.headers);
+  }
+
+  // data
   if(opt.method === 'POST' || opt.method === 'PUT') {
-    opt.body = setData(options.data) || {};
+    if (opt.headers['Content-Type'].indexOf('application/x-www-form-urlencoded') > 0) {
+      opt.body = setData(options.data) || {};
+    } else {
+      opt.body = options.data || {};
+    }    
   }
 
   // 线上 设置同源，获取cookie
