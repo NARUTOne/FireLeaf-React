@@ -41,6 +41,11 @@ export default class RouterList extends Component{
               cb(null, require('./pages/todo/').default);
             });
           }} breadcrumbName="todo"/>
+          <Route path='react'  getComponent={(location, cb) => {
+            require.ensure([], require => {
+              cb(null, require('./pages/ReactNew/').default);
+            });
+          }} breadcrumbName="reactNew"/>
           <Route path='login'  getComponent={(location, cb) => {
             require.ensure([], require => {
               cb(null, require('./pages/login/').default);

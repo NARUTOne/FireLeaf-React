@@ -13,6 +13,11 @@ var NAV_LIST = [{
   icon: 'form',
   key: 'todo',
   href: '/app/todo'
+}, {
+  name: 'ReactJS',
+  icon: 'form',
+  key: 'react',
+  href: '/app/react'
 }];
 
 module.exports = {

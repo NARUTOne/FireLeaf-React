@@ -28,7 +28,14 @@ var devMiddleware = webpackDevMiddleware(compiler, {
   }
 });
 
+const hotMiddleware = require('webpack-hot-middleware')(compiler, {
+  log: false,
+  heartbeat: 2000
+});
+
 app.use(devMiddleware);
+
+app.use(hotMiddleware);
 /**
  * browserHistory 下，静态资源加载
  */

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import List from './List';
-import {Input, Button, Icon } from 'antd';
+import {Input, Button } from 'antd';
 import MyIcon from 'components/MyIcon';
+
 import './index.less';
 
 class Todos extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -33,7 +33,6 @@ class Todos extends Component {
     const { text, list } = state;
     return (
       <div className="todos">
-        <Icon type='food'/>
         <MyIcon type='food'/>
         <div className='todo-box'>
           <Input style={{width: 200}} addonBefore='/' value={text} onChange={e => this.setState({'text': e.target.value})}/>

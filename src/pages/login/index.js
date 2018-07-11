@@ -42,7 +42,7 @@ class Login extends Component {
           }
         }).then((data) => {
           this.props.loginSuccess(data);
-          browserHistory.push(PName + '/home');
+          browserHistory.push(PName + '/todo');
         }).catch((err) => {
           this.props.loginError(err);
         });
