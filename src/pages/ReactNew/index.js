@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Repeat from './demo/Repeat';
 import NameForm from './demo/Form';
 import ListWords from './demo/ListWords';
+import ContextDemo from './demo/ContextDemo';
 import {Button} from 'antd';
 
 import './index.less';
@@ -33,12 +34,20 @@ class NewChange extends Component {
     return (
       <div className="react-new-change">
         <h3>ReactJS 16.4 学习</h3>
-        <ListWords words={this.state.words} num={this.state.wordsNum}></ListWords>
-        <Button onClick={this.handleAdd} type="primary">单词添加</Button>
-        <Button onClick={this.handleUpdate} >数字更新</Button>
-        <Repeat num={10}/>
-        <NameForm></NameForm>
-
+        <div>
+          <ListWords words={this.state.words} num={this.state.wordsNum}></ListWords>
+          <Button onClick={this.handleAdd} type="primary">单词添加</Button>
+          <Button onClick={this.handleUpdate} >数字更新</Button>
+        </div>
+        <div>
+          <Repeat num={10}/>
+        </div>
+        <div>
+          <NameForm></NameForm>
+        </div>
+        <div>
+          <ContextDemo></ContextDemo>
+        </div>
       </div>
     );
   }
