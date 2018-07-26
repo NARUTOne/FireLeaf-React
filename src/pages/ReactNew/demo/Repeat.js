@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
-const Child =  React.forwardRef((props, ref) => {
+const Child = React.forwardRef((props, ref) => {
   const items = [];
   for (let i = 0; i < props.numTimes; i++) {
     items.push(props.children(i));
