@@ -9,6 +9,7 @@ var path = require('path');
 var webpack = require('webpack');
 var rm = require('rimraf');
 var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 var WebpackConfig = require('../webpack.dev.config.js');
 var paths = require('./paths');
 
@@ -36,8 +37,7 @@ var devMiddleware = webpackDevMiddleware(compiler, {
   }
 });
 
-const hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: false,
+const hotMiddleware = webpackHotMiddleware(compiler, {
   heartbeat: 2000
 });
 

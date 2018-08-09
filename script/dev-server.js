@@ -25,9 +25,9 @@ const options = {
     chunks: false,
     colors: true
   },
-   // open: true, // autoOpenBrowser
-   proxy: proxyTable,
-   quiet: true // necessary for FriendlyErrorsPlugin
+  // open: true, // autoOpenBrowser
+  proxy: proxyTable,
+  quiet: true // necessary for FriendlyErrorsPlugin
 };
 
 WebpackDevServer.addDevServerEntrypoints(devConfig, options);

@@ -62,14 +62,14 @@ class Login extends Component {
               </div>
               <div className='login-form'>
                 <Form onSubmit={this.handleSubmit} className="login-form">
-                  <FormItem label='用户名'>
+                  <FormItem label='用户名😁'>
                     {getFieldDecorator('userName', {
                       rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                       <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
                     )}
                   </FormItem>
-                  <FormItem label='密码'>
+                  <FormItem label='密码🔒'>
                     {getFieldDecorator('password', {
                       rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
