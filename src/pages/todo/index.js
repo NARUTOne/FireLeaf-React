@@ -33,7 +33,7 @@ class Todos extends Component {
     const { text, list } = state;
     return (
       <div className="todos">
-        <h1>TODO1</h1>
+        <h1>TODOsaf</h1>
         <MyIcon type='food'/>
         <div className='todo-box'>
           <Input style={{width: 200}} addonBefore='/' value={text} onChange={e => this.setState({'text': e.target.value})}/>

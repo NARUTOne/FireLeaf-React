@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';  
 import thunk from 'redux-thunk';
@@ -26,13 +26,6 @@ const hotRender = Component => render(
 
 hotRender(RouterList);
 
-
-// if(process.env.NODE_ENV === 'development') {
-//   if(module.hot) {
-//     module.hot.accept();
-//   }
-// }
-
 console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'development') {
   if(module.hot) {
@@ -42,12 +35,12 @@ if(process.env.NODE_ENV === 'development') {
       if (err) {
         console.log(err);
       }
-      /*
-          卸载 react 模块后 重装
-      */ 
-      const RouterList = require('./router').default;
+      unmountComponentAtNode(mountNode);
       hotRender(RouterList);
     });
   } 
 }
 
+// if (module.hot) {
+//   module.hot.accept();
+// }

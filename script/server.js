@@ -19,11 +19,12 @@ var uri = 'http://localhost:' + port;
  
 rm.sync(path.resolve(__dirname, '..', paths.buildPath));
 
-const compiler = webpack(WebpackConfig);
-
 Object.keys(WebpackConfig.entry).forEach(function (name) {
   WebpackConfig.entry[name] = ['./script/dev-client'].concat(WebpackConfig.entry[name]);
 });
+
+
+const compiler = webpack(WebpackConfig);
 
 var devMiddleware = webpackDevMiddleware(compiler, {
   publicPath: WebpackConfig.output.publicPath,
@@ -33,7 +34,7 @@ var devMiddleware = webpackDevMiddleware(compiler, {
   lazy: false,
   watchOptions: {
     aggregateTimeout: 300,
-    poll: true
+    poll: true 
   }
 });
 
@@ -47,10 +48,10 @@ app.use(hotMiddleware);
 /**
  * browserHistory 下，静态资源加载
  */
-// //加载指定目录静态资源 
+// 加载指定目录静态资源 
 var resourcePath = path.resolve(__dirname, '..', paths.buildPath);
 app.use(express.static(resourcePath));
-// //配置任何请求都转到index.html，而index.html会根据React-Router规则去匹配任何一个route
+// 配置任何请求都转到index.html，而index.html会根据React-Router规则去匹配任何一个route
 // 这个需要动态修改index.html
 app.get('*', function(req, res) {
   // res.sendFile(path.resolve(resourcePath, 'index.html'))
