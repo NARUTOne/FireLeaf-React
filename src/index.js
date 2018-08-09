@@ -10,7 +10,7 @@ import './xhr_config.js';
 // redux 注入操作
 const middleware = [thunk];
 const store = createStore(reducer, applyMiddleware(...middleware));
-console.log(store.getState());
+// console.log(store.getState());
 
 const hotRender = Component => render(
   <Provider store={store}>
@@ -20,7 +20,7 @@ const hotRender = Component => render(
 
 hotRender(RouterList);
 
-// dev-server
+// // dev-server
 if(process.env.NODE_ENV !== 'production') {
   if(module.hot) {
     module.hot.accept(RouterList, () => {

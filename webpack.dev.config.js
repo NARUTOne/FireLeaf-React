@@ -15,10 +15,6 @@ const port = process.argv.slice(2)[0] || 3001;
 
 const pnamePath = paths.PName ? (paths.PName + '/').replace(/\/\//, '/') : '' ;
 
-Object.keys(baseConfig.entry).forEach(function (name) {
-  baseConfig.entry[name] = ['./script/dev-client'].concat(baseConfig.entry[name]);
-});
-
 module.exports = merge.smart(baseConfig, {
 	cache: true,
 	output: {
@@ -37,6 +33,7 @@ module.exports = merge.smart(baseConfig, {
 			url: `http://localhost:${port}/${pnamePath}`
 		}),
 		new webpack.HotModuleReplacementPlugin(), // 启用HMR
+		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: 'template.html',

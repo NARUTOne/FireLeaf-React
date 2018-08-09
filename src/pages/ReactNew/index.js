@@ -35,7 +35,7 @@ class NewChange extends Component {
   render () {
     return (
       <div className="react-new-change">
-        <h3>ReactJS 16.4 学习</h3>
+        <h3>React 16.x 学习</h3>
         <div>
           <h4>PureComponent</h4>
           <ListWords words={this.state.words} num={this.state.wordsNum}></ListWords>

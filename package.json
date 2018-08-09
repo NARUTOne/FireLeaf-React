@@ -75,6 +75,7 @@
     "echarts": "^3.7.2",
     "element-resize-event": "^2.0.9",
     "enquire-js": "^0.1.2",
+    "eventsource-polyfill": "^0.9.6",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "mockjs": "^1.0.1-beta3",
@@ -87,7 +88,7 @@
     "react-router": "^3.2.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "webpack-hot-middleware": "^2.22.2",
+    "webpack-hot-middleware": "^2.22.3",
     "whatwg-fetch": "^2.0.3"
   }
 }

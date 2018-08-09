@@ -14,17 +14,25 @@ var paths = require('./paths');
 
 var app = express();
 var port = process.argv.slice(2)[0] || 3001;
-
 var uri = 'http://localhost:' + port;
  
 rm.sync(path.resolve(__dirname, '..', paths.buildPath));
 
 const compiler = webpack(WebpackConfig);
 
+Object.keys(WebpackConfig.entry).forEach(function (name) {
+  WebpackConfig.entry[name] = ['./script/dev-client'].concat(WebpackConfig.entry[name]);
+});
+
 var devMiddleware = webpackDevMiddleware(compiler, {
   publicPath: WebpackConfig.output.publicPath,
   stats: {
     colors: true
+  },
+  lazy: false,
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: true
   }
 });
 

@@ -1,5 +1,6 @@
 /* eslint-disable */
 'use strict';
+require('eventsource-polyfill');  // 兼容IE
 var hotClient = require('webpack-hot-middleware/client?noInfo=true&reload=true');
 
 hotClient.subscribe(function (event) {
