@@ -87,7 +87,7 @@ class SiderCustom extends Component {
       [`sider-${styleTheme}`]: true
     });
 
-    return (
+    return ( 
       <Sider
       trigger={null}
       breakpoint="lg"
@@ -95,6 +95,7 @@ class SiderCustom extends Component {
       style={{overflowY: 'auto'}}
       collapsedWidth={70}
       width={210}
+      theme={styleTheme === 'default' ? 'light': styleTheme}
       className={classNameStyle}
     >
       <div className="sider-logo">
@@ -106,7 +107,7 @@ class SiderCustom extends Component {
         onClick={this.menuClick}
         mode={this.state.mode}
         selectedKeys={[this.state.selectedKey]}
-        theme={theme == 'default' ? 'light': theme}
+        theme={styleTheme === 'default' ? 'light': styleTheme}
       >
         {this.renderNav(navList)}
       </Menu>

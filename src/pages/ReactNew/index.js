@@ -5,6 +5,7 @@ import ListWords from './demo/ListWords';
 import ContextDemo from './demo/ContextDemo';
 import FregmentBox from './demo/FregmentBox';
 import PortalsBox from './demo/PortalsBox';
+import RenderProps from './demo/RenderProps';
 import {Button} from 'antd';
 
 import './index.less';
@@ -64,6 +65,10 @@ class NewChange extends Component {
             <PortalsBox></PortalsBox>
           </div>
           <div id="modal-root"></div>
+        </div>
+        <div>
+          <h4>render props</h4>
+          <RenderProps></RenderProps>
         </div>
       </div>
     );

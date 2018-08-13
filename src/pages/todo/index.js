@@ -21,7 +21,7 @@ class Todos extends Component {
     this.setState({list});
   }
 
-  handleAdd() {
+  handleAdd() { // 性能问题
     const {list, text} = this.state;    
     list.push(text);
     
