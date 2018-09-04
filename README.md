@@ -1,10 +1,11 @@
-## PROJECT NAME
+# PROJECT NAME
 
 :fire: :bug:
 
 - webpack: 3.8.1
 - react: ^16.4.1
-- react-router: ^3.2.1 
+- react-router: ^3.2.1
+- antd: ^3.1.2
 
 独立的前端代码包，接通数据源后（`src/utils/config.js`）即可本地运行，放置服务器后端环境下即可部署
 
@@ -21,7 +22,7 @@ $ npm install
 ## 本地开发环境运行
 
 ```sh
-$ npm start 
+$ npm start
 
 或
 
@@ -53,8 +54,8 @@ $ npm run build
 |       |-- home                       // 默认首页
 |       |-- notFound                   // 404页
 |       |-- template                   // react组件模板（简易）
-|       |-- ... 
-|   |-- reducer                        // redux的reducer                       
+|       |-- ...
+|   |-- reducer                        // redux的reducer
 |   |-- utils                          // 公共集合（配置，样式，工具）
 |       |-- style                      // 公共样式（less 变量）
 |       |-- config                     // 项目业务配置
