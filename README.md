@@ -1,4 +1,4 @@
-# PROJECT NAME
+# PROJECT NAME 1.0
 
 :fire: :bug:
 
