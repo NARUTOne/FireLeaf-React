@@ -21,7 +21,7 @@ const hotRender = Component => render(
     <Provider store={store}>
       <Component />
     </Provider>
-  </AppContainer>  
+  </AppContainer>
 , mountNode);
 
 hotRender(RouterList);
