@@ -5,16 +5,17 @@
 var webpack = require('webpack');
 var path = require('path');
 var WebpackDevServer = require('webpack-dev-server');
-var devConfig = require('../webpack.dev.config.js');
-var paths = require('./paths');
+var devConfig = require('../build/webpack.dev.config.js');
+var CONFIG = require('../config/index');
 
-const proxyTable = paths.proxyTable;
+var proxyTable = CONFIG.dev.proxyTable;
+var port = process.argv.slice(2)[0] || CONFIG.dev.host;
 
-const options = {
-	hot: true,
+var options = {
+  hot: true,
   compress: true,
   historyApiFallback: true,
-  contentBase: path.resolve(__dirname, paths.buildPath),
+  contentBase: path.resolve(__dirname, CONFIG.build.buildPath),
   publicPath: devConfig.output.publicPat,
   host: 'localhost',
   watchOptions: {
@@ -38,10 +39,10 @@ const server = new WebpackDevServer(compiler, options);
 let proxyList=[];
 if(Array.isArray(proxyTable)) proxyList = [...proxyList, proxyTable];
 else Object.keys(proxyTable).forEach(function (context) {
-	proxyList = [...proxyList, `Proxy created: ${context} -> ${proxyTable[context].target}`];
+  proxyList = [...proxyList, `Proxy created: ${context} -> ${proxyTable[context].target}`];
 });
 
-server.listen(3001, 'localhost', function() {    
-  console.log('dev server listening on port 3001');
+server.listen(port, 'localhost', function () {    
+  console.log('dev server listening on port ' + port);
   console.log(proxyList);
 });
