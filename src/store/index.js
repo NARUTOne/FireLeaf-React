@@ -1,10 +1,10 @@
 /**
- * redux   reducer
+ * redux
  */
 
 import { combineReducers } from 'redux';
-import login from './login';
+import home from './reducer/home';
 
 export default combineReducers({
-  login
+  home
 });
