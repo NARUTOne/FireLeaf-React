@@ -1,20 +1,16 @@
 import React from 'react';
-import {Icon, Layout} from 'antd';
 import './index.less';
 
-const {Content} = Layout;
-
-const NotDev = (props) => {
-  const {children, ...other} = props;
+const NotFound = (props) => {
+  const {children} = props;
   return (
-    <Content className="not-dev" {...other}>
+    <div className="not-found">
       <h1>
-        <Icon type='meh-o'/>
+        404
       </h1>
-      <p className='warn-color not-dev-info'>您访问的页面暂未开发，敬请期待&nbsp;<Icon type='smile-o'/></p>
+      <p className='warn-color not-dev-info'>您访问的页面暂未开发，敬请期待&nbsp;</p>
       <p>{children}</p>
-    </Content>
+    </div>
   );
 };
-
-export default NotDev;
+export default NotFound;
