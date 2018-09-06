@@ -2,22 +2,19 @@
 @import 'antd.less';
 
 // 滚动条
-::-webkit-scrollbar/*整体部分*/
-{
+::-webkit-scrollbar {
   width: 8px;
-  height:10px;
+  height: 10px;
 }
 
-::-webkit-scrollbar-thumb/*滑块*/
-{
+::-webkit-scrollbar-thumb {
   border-radius: 3px;
   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   background: rgba(0,0,0,0.4);
   margin-right: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover/*滑块效果*/
-{
+::-webkit-scrollbar-thumb:hover {
   border-radius: 3px;
   -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   background: #777;
@@ -26,8 +23,8 @@
 
 // base
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
@@ -66,8 +63,8 @@ body {
   line-height: 1.5;
 }
 
-input::-ms-clear{display: none;}
-input::-ms-reveal{display: none;}
+input::-ms-clear { display: none;}
+input::-ms-reveal { display: none;}
 
 ul, li {
   margin: 0;
@@ -138,9 +135,9 @@ ul, li {
 
 .clear-float {
   &:after {
-    content:'';
-    display:table;
-    clear:both;
+    content: '';
+    display: table;
+    clear: both;
   }
 }
 
@@ -218,7 +215,7 @@ ul, li {
 // 个性化
 
 // 提示框
-.tooltips{
+.tooltips {
   position: absolute;
   max-width: 200px;
   height: auto;
@@ -232,9 +229,9 @@ ul, li {
   /*box-shadow: 3px 3px 1px #999;*/
   padding: 8px;
   /*display:none;*/
-  word-wrap:break-word;
-  word-break:break-all;
-  z-index:4;
+  word-wrap: break-word;
+  word-break: break-all;
+  z-index: 4;
 }
 
 // 表单校验
