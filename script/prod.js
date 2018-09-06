@@ -2,26 +2,31 @@
 * npm run build
 */
 
+'use strict';
+require('./check-versions')();
+
 var ora = require('ora'); // 终端 spinner
 var rm = require('rimraf');
 var path = require('path');
 var chalk = require('chalk');
 var webpack = require('webpack');
-var paths = require('./paths');
-var webpackConfig = require('../webpack.prod.config.js');
+var CONFIG = require('../config/index');
+var webpackConfig = require('../build/webpack.prod.config.js');
 
 process.env.NODE_ENV = 'production';
 
 var spinner = ora('building for production...');
-spinner.start();
+spinner.start(); 
  
-rm(path.join(path.resolve(__dirname), '..', paths.buildPath), err => {
+rm(path.join(CONFIG.build.buildPath), err => {
   if (err) throw err;
   console.log(chalk.cyan('build step 1'));
   webpack(webpackConfig, function (err, stats) {
     spinner.stop();
     console.log(chalk.cyan('build step 2'));
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
     process.stdout.write(stats.toString({
       colors: true,
       modules: false,
