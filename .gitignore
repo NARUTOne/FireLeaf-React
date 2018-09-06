@@ -16,3 +16,7 @@ yarn-error.log*
 node_modules
 dist
 lib
+
+# cache
+
+.stylelintcache
