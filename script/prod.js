@@ -2,8 +2,8 @@
 * npm run build
 */
 
-'use strict'
-require('./check-versions')()
+'use strict';
+require('./check-versions')();
 
 var ora = require('ora'); // 终端 spinner
 var rm = require('rimraf');

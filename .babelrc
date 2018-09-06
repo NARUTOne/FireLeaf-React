@@ -2,13 +2,9 @@
   "presets": [
   	"env", 
   	"react",
-    ["es2015", {"modules": false}],
-    "stage-0",
-    "stage-3"
+    ["es2015", {"modules": false}]
   ],
   "plugins": [
-    "transform-runtime",
-    ["react-hot-loader/babel"],
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]
+    "transform-runtime"
   ]
 }
