@@ -7,9 +7,9 @@
 - react-router: ^4.0
 - antd: ^3.8
 
-独立的前端代码包，接通数据源后（`src/utils/config.js`）即可本地运行，放置服务器后端环境下即可部署
+## 准备reading
 
-## 安装
+### install
 
 ```sh
 git clone </path/to/repository>
@@ -19,29 +19,34 @@ cd repository
 npm install
 ```
 
-## 本地开发环境运行
+### dev-running
 
 ```sh
+# 默认 3001
 npm start
-
 # 或
-
 npm start -p [port]
+# webpack-dev
+npm run dev
+
 ```
 
-## 打包发布
+### build-dist
 
 ```sh
+# 规范测试校验
+npm run lint
+# 打包
 npm run build
 ```
-
-## DEMO示例 (线上查看敬请期待:smile:)
-
-- [https://github.com/NARUTOne/redux-react-demo](https://github.com/NARUTOne/redux-react-demo)
 
 ## 脚手架目录
 
 > 待完善...
+
+## DEMO示例 (线上查看敬请期待:smile:)
+
+- [https://github.com/NARUTOne/redux-react-demo](https://github.com/NARUTOne/redux-react-demo)
 
 ## 参考
 

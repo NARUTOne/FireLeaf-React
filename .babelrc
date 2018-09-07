@@ -5,6 +5,7 @@
     ["es2015", {"modules": false}]
   ],
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "syntax-dynamic-import"
   ]
 }
