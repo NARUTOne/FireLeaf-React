@@ -31,23 +31,44 @@
 /**
  * router config
  */
+import Loadable from 'react-loadable';
 
+import LoadingPage from 'components/LoadingPage/';
+
+// sync code splitting
+
+const Home = Loadable({
+  loader: () => import('../pages/Home/'),
+  loading: LoadingPage
+});
+
+const Todo = Loadable({
+  loader: () => import('../pages/Todo/'),
+  loading: LoadingPage
+});
+
+const NotFound = Loadable({
+  loader: () => import('../pages/NotFound/'),
+  loading: LoadingPage
+});
+
+// routers
 export default [
   {
-    component: '../pages/Home/',
+    component: Home,
     exact: true,
     path: '/'
   },
   {
-    component: '../pages/Home/',
+    component: Home,
     path: '/home'
   },
   {
-    component: '../pages/Todo/',
+    component: Todo,
     path: '/todo'
   },
   {
-    component: '../pages/NotFound/',
+    component: NotFound,
     path: '/404'
   }
 ];

@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
-import Loadable from 'react-loadable';
+
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import LoadingPage from 'components/LoadingPage/';
+
 import routers from './router.config';
 
+
 const routerList = routers.map((item, index) => {
-  console.log(item.component);
-  const componentPage = Loadable({
-    loader: () => import(`${item.component}`),
-    // loader: () => import('../pages/Home/'),
-    loading: LoadingPage
-  });
+  // console.log(item.component);
+  const componentPage = item.component;
   return <Route exact={!!item.exact} path={item.path} component={componentPage} key={'page' + index}/>;
 });
 
