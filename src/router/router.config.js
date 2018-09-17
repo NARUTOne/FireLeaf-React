@@ -70,5 +70,8 @@ export default [
   {
     component: NotFound,
     path: '/404'
+  },
+  {
+    component: NotFound
   }
 ];
