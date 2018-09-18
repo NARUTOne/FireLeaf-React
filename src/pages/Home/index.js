@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import {Button} from 'antd';
 
 class Home extends Component {
   constructor() {
@@ -18,6 +19,8 @@ class Home extends Component {
           fontWeight: 'bold',
           color: 'red'
         }}>home</NavLink>
+        <h3>ant-components</h3>
+        <Button type="primary">Primary</Button>
       </div>
     );
   }

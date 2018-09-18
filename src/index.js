@@ -33,9 +33,9 @@ hotRender(RouterList);
 // console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'development') {
   if(module.hot) {
-    // console.log('refresh-hot');
+    console.log('refresh-hot');
     module.hot.accept('./router/', (err) => {
-      // console.log('refresh-hot-1');
+      console.log('refresh-hot-1');
       if (err) {
         console.log(err);
       }

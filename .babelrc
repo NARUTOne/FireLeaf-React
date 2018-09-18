@@ -6,6 +6,8 @@
   ],
   "plugins": [
     "transform-runtime",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    ["react-hot-loader/babel"],
+    ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": true }]
   ]
 }

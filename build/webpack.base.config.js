@@ -14,6 +14,22 @@ var CONFIG = require('../config/index');
 
 var pnamePath = utils.pnamePath;
 
+// 获取theme
+const fs = require('fs');
+const pkgPath = path.resolve(__dirname, './package.json');
+const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {};
+let theme = {};
+if (pkg.theme && typeof pkg.theme === 'string') {
+  let cfgPath = pkg.theme;
+  if (cfgPath.charAt(0) === '.') {
+    cfgPath = path.resolve(__dirname, cfgPath);
+  }
+  const getThemeConfig = require(cfgPath);
+  theme = getThemeConfig();
+} else if (pkg.theme && typeof pkg.theme === 'object') {
+  theme = pkg.theme;
+}
+
 var baseConfig = {
   entry: {
     app: path.join(__dirname, '../src/index.js')
@@ -80,7 +96,15 @@ var baseConfig = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'less-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              "sourceMap": true,
+              "modules": false,
+              "modifyVars": theme,
+              'javascriptEnabled': true
+            }
+          }
         ]
       }
     ]
