@@ -13,9 +13,10 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <h3>home</h3>
-        <Link to='/todo'>TODO</Link><br/>
-        <NavLink to="/home" activeStyle={{
+        <h2>Home</h2>
+        <Link to='/app/todo'>TODO</Link><br/>
+        <Link to='/404'>404</Link><br/>
+        <NavLink to="/app/home" activeStyle={{
           fontWeight: 'bold',
           color: 'red'
         }}>home</NavLink>

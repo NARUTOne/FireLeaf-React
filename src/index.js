@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 // 引入路由配置模块
@@ -20,7 +20,7 @@ const store = createStore(reducer, applyMiddleware(...middleware));
 
 const mountNode = document.getElementById('app'); // 设置要挂在的点
 
-const hotRender = Component => render(
+const hotRender = Component => ReactDom.render(
   <AppContainer>
     <Provider store={store}>
       <Component />
@@ -33,13 +33,9 @@ hotRender(RouterList);
 // console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'development') {
   if(module.hot) {
-    console.log('refresh-hot');
-    module.hot.accept('./router/', (err) => {
-      console.log('refresh-hot-1');
-      if (err) {
-        console.log(err);
-      }
-      unmountComponentAtNode(mountNode);
+    module.hot.accept('./router/', () => {
+      // https://github.com/gaearon/react-hot-loader/issues/511#issuecomment-288673129
+      const RouterList = require('./router/').default;
       hotRender(RouterList);
     });
   } 

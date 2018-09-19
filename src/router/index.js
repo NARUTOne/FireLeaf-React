@@ -1,15 +1,26 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import ScrollTop from 'components/ScrollTop/';
 import routers from './router.config';
 
 const routerList = routers.map((item, index) => {
   // console.log(item.component);
-  const componentPage = item.component;
+  const ComponentPage = item.component;
   if (item.path) {
-    return <Route exact={!!item.exact} path={item.path} component={componentPage} key={'page' + index}/>;
+    if (item.children && item.children.length) {
+      return <Route 
+        exact={!!item.exact}
+        path={item.path} 
+        render={(props) => <ComponentPage {...props} routers={item.children}/>} 
+        key={'page' + index}/>;
+    }
+    return <Route 
+      exact={!!item.exact}
+      path={item.path} 
+      render={(props) => item.redirectUrl ? <Redirect to={item.redirectUrl} push /> :<ComponentPage {...props} routers={item.children}/>}  
+      key={'page' + index}/>;
   }
-  return <Route component={componentPage} key={'page' + index}/>;
+  return <Route component={ComponentPage} key={'page' + index}/>;
 });
 
 const getConfirmation = (message, callback) => {

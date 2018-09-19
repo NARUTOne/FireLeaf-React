@@ -37,6 +37,12 @@ import LoadingPage from 'components/LoadingPage/';
 
 // sync code splitting
 
+
+const App = Loadable({
+  loader: () => import('../pages/App/'),
+  loading: LoadingPage
+});
+
 const Home = Loadable({
   loader: () => import('../pages/Home/'),
   loading: LoadingPage
@@ -55,17 +61,25 @@ const NotFound = Loadable({
 // routers
 export default [
   {
-    component: Home,
+    redirectUrl: '/app/home',
     exact: true,
     path: '/'
   },
   {
-    component: Home,
-    path: '/home'
-  },
-  {
-    component: Todo,
-    path: '/todo'
+    path: '/app',
+    component: App,
+    children: [
+      {
+        component: Home,
+        title: '首页',
+        path: '/app/home'
+      },
+      {
+        component: Todo,
+        title: 'todo',
+        path: '/app/todo'
+      },
+    ]
   },
   {
     component: NotFound,
