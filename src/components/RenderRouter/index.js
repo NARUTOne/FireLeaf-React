@@ -1,7 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
-class RenderRouter extends PureComponent {
+// PureComponent 采用导致Route无法更新
+class RenderRouter extends Component {
   render() {
     return (
       <Switch>
@@ -9,10 +10,10 @@ class RenderRouter extends PureComponent {
           const ComponentPage = item.component;
           return <Route exact 
             path={item.path}
-            render={props => <ComponentPage {...props}></ComponentPage> }
-           key={'page' + index}/>;
+            render={props => <ComponentPage {...props} routers={item.children || []}></ComponentPage> }
+            key={'page' + index + item.path}/>;
         })}
-        <Route render={() => <Redirect to="/404" />} />
+        <Route render={() => <Redirect to="/404" push/>} />
       </Switch>  
     );
   }

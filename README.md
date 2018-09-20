@@ -2,10 +2,7 @@
 
 :fire: :bug:
 
-- webpack: ^4.0
-- react: ^16.4.1
-- react-router: ^4.0
-- antd: ^3.8
+[构建过程](https://github.com/NARUTOne/blog-note/issues/26)
 
 ## 准备reading
 
@@ -56,4 +53,4 @@ npm run build
 
 ## 日志
 
-待完善
+[LOG](./CHANGE.md)

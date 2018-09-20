@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoadingPage = ({ isLoading, error }) => {
   // Handle the loading state
-  console.log(isLoading, error);
+  // console.log(isLoading, error);
   if (isLoading) {
       return <div className="loading-page">Loading...</div>;
   }

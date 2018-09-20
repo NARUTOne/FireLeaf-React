@@ -14,8 +14,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h2>Home</h2>
-        <Link to='/app/todo'>TODO</Link><br/>
-        <Link to='/404'>404</Link><br/>
+        <Link to='/404'>404页</Link><br/>
         <NavLink to="/app/home" activeStyle={{
           fontWeight: 'bold',
           color: 'red'

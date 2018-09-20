@@ -40,22 +40,26 @@ import LoadingPage from 'components/LoadingPage/';
 
 const App = Loadable({
   loader: () => import('../pages/App/'),
-  loading: LoadingPage
+  loading: LoadingPage,
+  delay: 200
 });
 
 const Home = Loadable({
   loader: () => import('../pages/Home/'),
-  loading: LoadingPage
+  loading: LoadingPage,
+  delay: 200
 });
 
 const Todo = Loadable({
   loader: () => import('../pages/Todo/'),
-  loading: LoadingPage
+  loading: LoadingPage,
+  delay: 200
 });
 
 const NotFound = Loadable({
   loader: () => import('../pages/NotFound/'),
-  loading: LoadingPage
+  loading: LoadingPage,
+  delay: 200
 });
 
 // routers

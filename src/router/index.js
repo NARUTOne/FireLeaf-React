@@ -8,23 +8,24 @@ const routerList = routers.map((item, index) => {
   const ComponentPage = item.component;
   if (item.path) {
     if (item.children && item.children.length) {
-      return <Route 
-        exact={!!item.exact}
+      return <Route
+        exact={item.exact}
         path={item.path} 
         render={(props) => <ComponentPage {...props} routers={item.children}/>} 
-        key={'page' + index}/>;
+        key={'page' + index + item.path}/>;
     }
-    return <Route 
-      exact={!!item.exact}
+    return <Route
+      exact={item.exact}
       path={item.path} 
       render={(props) => item.redirectUrl ? <Redirect to={item.redirectUrl} push /> :<ComponentPage {...props} routers={item.children}/>}  
-      key={'page' + index}/>;
+      key={'page' + index + item.path}/>;
   }
   return <Route component={ComponentPage} key={'page' + index}/>;
 });
 
 const getConfirmation = (message, callback) => {
   const allowTransition = window.confirm(message);
+  console.log(message);
   callback(allowTransition);
 };
 
@@ -34,7 +35,7 @@ class RouterList extends Component{
       <BrowserRouter basename="/FireLeaf" getUserConfirmation={getConfirmation}>
         <ScrollTop>
           <div className="wrapper">
-            <Switch>
+            <Switch key={Math.random()}>
               {routerList}
               {/* <Route path="*" render={({ staticContext, ...props }) => <NotFound {...props} />} /> */}
             </Switch>
