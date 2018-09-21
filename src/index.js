@@ -11,7 +11,7 @@ import RouterList from './router/';
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './store/';
 
-import './style/comment.less';
+import './style/index.less';
 
 // redux 注入操作
 const middleware = [];

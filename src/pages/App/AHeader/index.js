@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import {history} from 'react-router-dom';
 import classnames from 'classnames';
 import {Layout, Icon} from 'antd';
 
@@ -16,10 +16,12 @@ class AHeader extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
+    this.props.history.push('/login');
   }
 
   handleLogout = (e) => {
     e.preventDefault();
+    this.props.history.push('/login');
   }
 
   render () {
@@ -39,22 +41,20 @@ class AHeader extends Component {
       </div>
       <div className="header__right right" >
         {user ? 
-         <div>{user.userName} &nbsp; <span className="ant-divider" /> &nbsp; <Icon type='logout' onClick={this.handleLogout}/></div>:
-         <Icon type='login' onClick={this.handleLogin}/> }
+         <div>{user.userName} &nbsp; <span className="ant-divider" /> &nbsp; <Icon type='logout' onClick={this.handleLogout} title="登出"/></div>:
+         <div onClick={this.handleLogin} className="pointer"><Icon type='login' title="登录"/> 登录</div>}
       </div>
     </Header>
     );
   }
 }
 
-
 AHeader.propTypes = {
   // 主题，dark/light/default
 	theme: PropTypes.string,
-  location: PropTypes.object.isRequired,
   toggle: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired
 };
 
 
-export default AHeader;
+export default withRouter(AHeader);

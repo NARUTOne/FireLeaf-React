@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.less';
 
 const NotFound = (props) => {
   const {children} = props;

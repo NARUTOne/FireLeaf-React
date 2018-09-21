@@ -6,10 +6,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
 import classnames from 'classnames';
-import { Link, history } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { systemName } from 'utils/config';
 import navList from '@/mock/navs';
-import './index.less';
 
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -59,7 +58,7 @@ class ASider extends Component {
   };
 
   handleJump = () => {
-    history.push('/');
+    this.props.history.push('/');
     this.setState({
       openKey: DEFAULT_PATH,
       selectedKey: DEFAULT_PATH
@@ -95,15 +94,15 @@ class ASider extends Component {
       breakpoint="lg"
       collapsed={this.props.collapsed}
       style="overflowY: 'auto'"
-      collapsedWidth={70}
+      collapsedWidth={80}
       width={210}
       theme={styleTheme === 'default' ? 'light': styleTheme}
       className={classNameStyle}
     >
       <div className="sider-logo">
-        <Link onClick={this.handleJump} className={classnames('logo', {"logo-max": !this.state.collapsed, 'logo-min': !!this.state.collapsed, 'hide': !!this.props.hideLogo})}>
+        <a onClick={this.handleJump} className={classnames('logo', {"logo-max": !this.state.collapsed, 'logo-min': !!this.state.collapsed, 'hide': !!this.props.hideLogo})}>
           {!this.state.collapsed ? systemName : null}
-        </Link>
+        </a>
       </div>
       <Menu
         onClick={this.menuClick}
@@ -118,9 +117,10 @@ class ASider extends Component {
 }
 
 ASider.propTypes = {
+  history: PropTypes.object.isRequired,
   // 主题，dark/light/default
   theme: PropTypes.string,
   hideLogo: PropTypes.bool, // 默认 false
 };
 
-export default ASider;
+export default withRouter(ASider);

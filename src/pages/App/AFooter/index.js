@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './index.less';
 import { Layout } from 'antd';
 import {systemName} from 'utils/config';
 

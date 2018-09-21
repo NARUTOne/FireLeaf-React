@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import './index.less';
 
 const { Content } = Layout;
 

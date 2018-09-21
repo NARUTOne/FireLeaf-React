@@ -9,5 +9,5 @@ if(process.env.NODE_ENV == 'development') {
 
 module.exports = {
   apiBaseUrl,
-  systemName: 'system name'
+  systemName: 'Fire Leaf 🍂'
 };

@@ -46,7 +46,7 @@ var baseConfig = {
     alias: {
       '@': utils.resolve('src'),
       utils: path.resolve(__dirname, '../src/utils'),
-      components: path.resolve(__dirname, '../src/components')
+      static: path.resolve(__dirname, '../static')
     }
   },
   module: {

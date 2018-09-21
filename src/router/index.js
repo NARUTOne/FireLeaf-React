@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import ScrollTop from 'components/ScrollTop/';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import ScrollTop from '@/components/ScrollTop/';
 import routers from './router.config';
+import BrowserRouter from './BrowsweRouter';
 
 const routerList = routers.map((item, index) => {
   // console.log(item.component);

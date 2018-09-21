@@ -33,7 +33,7 @@
  */
 import Loadable from 'react-loadable';
 
-import LoadingPage from 'components/LoadingPage/';
+import LoadingPage from '@/components/LoadingPage/';
 
 // sync code splitting
 
@@ -52,6 +52,12 @@ const Home = Loadable({
 
 const Todo = Loadable({
   loader: () => import('../pages/Todo/'),
+  loading: LoadingPage,
+  delay: 200
+});
+
+const Login = Loadable({
+  loader: () => import('../pages/Login/'),
   loading: LoadingPage,
   delay: 200
 });
@@ -84,6 +90,10 @@ export default [
         path: '/app/todo'
       },
     ]
+  },
+  {
+    component: Login,
+    path: '/login'
   },
   {
     component: NotFound,
