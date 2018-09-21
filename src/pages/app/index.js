@@ -51,7 +51,7 @@ class App extends Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
-  };
+  }
 
   componentDidMount() {
     enquireScreen((b) => {
