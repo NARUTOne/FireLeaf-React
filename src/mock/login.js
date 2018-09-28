@@ -32,10 +32,10 @@ export default {
     return {
       code: 200,
       data: userMap[userName],
-      msg: 'success, welcome !'
+      message: 'success, welcome !'
     };
   },
   toLogout: () => {
-    return {code: 200, data: {}, msg: 'success, thanks!'};
+    return {code: 200, data: {}, message: 'success, thanks!'};
   }
 };

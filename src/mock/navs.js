@@ -5,11 +5,11 @@
 export default [{
   name: '概览',
   icon: 'smile',
-  key: 'home',
+  key: '/app/home',
   href: '/app/home'
 }, {
   name: 'todo',
   icon: 'ordered-list',
-  key: 'todo',
+  key: '/app/todo',
   href: '/app/todo'
 }];

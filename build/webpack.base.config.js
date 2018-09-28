@@ -114,8 +114,8 @@ var baseConfig = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: pnamePath +'static/css/[name].[contenthash].css',
       chunkFilename: pnamePath +'static/css/[id].[contenthash].css',
+      filename: pnamePath +'static/css/[name].[contenthash].css'
     }),
     new StyleLintPlugin({
       // 正则匹配想要lint监测的文件

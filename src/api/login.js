@@ -12,7 +12,10 @@ export function toLoginXHR (data) {
       type: 'POST',
       data,
       success: res => {
-        resolve(res);
+        const obj = {
+          success: true
+        };
+        resolve(Object.assign(res, obj));
       },
       error: err => {
         reject(err);
@@ -27,7 +30,10 @@ export function toLogoutXHR () {
       url: 'api/logout',
       type: 'GET',
       success: res => {
-        resolve(res);
+        const obj = {
+          success: true
+        };
+        resolve(Object.assign(res, obj));
       },
       error: err => {
         reject(err);

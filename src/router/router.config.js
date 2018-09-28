@@ -41,31 +41,31 @@ import LoadingPage from '@/components/LoadingPage/';
 const App = Loadable({
   loader: () => import('../pages/App/'),
   loading: LoadingPage,
-  delay: 200
+  delay: 1000
 });
 
 const Home = Loadable({
   loader: () => import('../pages/Home/'),
   loading: LoadingPage,
-  delay: 200
+  delay: 1000
 });
 
 const Todo = Loadable({
   loader: () => import('../pages/Todo/'),
   loading: LoadingPage,
-  delay: 200
+  delay: 1000
 });
 
 const Login = Loadable({
   loader: () => import('../pages/Login/'),
   loading: LoadingPage,
-  delay: 200
+  delay: 1000
 });
 
 const NotFound = Loadable({
   loader: () => import('../pages/NotFound/'),
   loading: LoadingPage,
-  delay: 200
+  delay: 1000
 });
 
 // routers

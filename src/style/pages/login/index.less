@@ -1,5 +1,4 @@
 .login-row {
-  margin-top: 150px;
   flex-direction: column;
   -webkit-flex-grow: 1;
   flex-grow: 1;
@@ -8,6 +7,8 @@
   background-position: center 110px;
   background-size: 100%;
   .login-box {
+    width: 500px;
+    margin: 150px auto;
     padding: 30px;
     background: #fff;
     border-radius: 6px;
@@ -42,5 +43,16 @@
 
   .login-example {
     color: #ccc;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .login-row {
+    .login-box {
+      width: 366px;
+      .login-form {
+        padding: 0;
+      }
+    }
   }
 }

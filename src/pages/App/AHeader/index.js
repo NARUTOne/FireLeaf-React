@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {loginAction} from '@/store/action/';
 import {Layout, Icon} from 'antd';
 
 const {Header} = Layout;
+const {toLogout} = loginAction;
 
 class AHeader extends Component {
   constructor () {
@@ -14,14 +17,23 @@ class AHeader extends Component {
     };
   }
 
+  componentDidUpdate () {
+    const {user, isLogin} = this.props;
+
+    if (!user || !isLogin) {
+      console.log(2);
+      this.props.history.push('/login');
+    }
+  }
+
   handleLogin = (e) => {
     e.preventDefault();
-    this.props.history.push('/login');
+    this.props.toLogout();
   }
 
   handleLogout = (e) => {
     e.preventDefault();
-    this.props.history.push('/login');
+    this.props.toLogout();
   }
 
   render () {
@@ -53,8 +65,22 @@ AHeader.propTypes = {
   // 主题，dark/light/default
 	theme: PropTypes.string,
   toggle: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired
 };
 
+const mapStateToPorps = state => {
+  const {login} = state;
 
-export default withRouter(AHeader);
+  return Object.assign({}, login);
+};
+
+function mapDispatchToProps (dispatch) {
+  return {
+    toLogout: (params) => {
+      toLogout(params, dispatch);
+    }
+  };
+}
+
+export default connect(mapStateToPorps, mapDispatchToProps)(withRouter(AHeader));

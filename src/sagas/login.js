@@ -14,40 +14,41 @@ const {
 function * toLogin () {
   yield delay(2000);
   const toLoginAction = yield take(TO_LOGIN);
-  const toLoginPromise = yield call (toLoginXHR, toLoginAction.params);
+  const toLoginRes = yield call (toLoginXHR, toLoginAction.params);
+  // console.log(toLoginPromise);
 
-  toLoginPromise.then(function * (res) {
+  if (toLoginRes.success) {
     yield put({
       type: LOGIN_SUCCESS,
-      data: res.data
+      data: toLoginRes.data
     });
-  }).catch( function * (err) {
+  } else {
     yield put({
       type: LOGIN_ERROR,
-      data: err
+      data: toLoginRes
     });
-  });
+  }
 }
 
 function * toLogout () {
   yield delay(2000);
   const toLogoutAction = yield take(TO_LOGOUT);
-  const toLogoutPromise = yield call (toLogoutXHR, toLogoutAction.params);
-
-  toLogoutPromise.then(function * (res) {
+  const res = yield call (toLogoutXHR, toLogoutAction.params);
+  // console.log(toLogoutPromise);
+  if (res.success) {
     yield put({
       type: LOGOUT_SUCCESS,
-      data: res.data
+      data: res
     });
-  }).catch( function * (err) {
+  } else {
     yield put({
       type: LOGIN_ERROR,
-      data: err
+      data: res
     });
-  });
+  }
 }
 
-export default {
+export {
   toLogin,
   toLogout
 };
