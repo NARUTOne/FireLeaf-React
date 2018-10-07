@@ -38,7 +38,7 @@ var webpackConfig = merge(baseConfig, {
       filename: path.resolve(__dirname, CONFIG.build.buildPath, 'index.html'),
       template: 'template.html',
       inject: true, // 注入
-      favicon: utils.resolve('../favicon.ico'),
+      favicon: utils.resolve('favicon.ico'),
       minify: {
         removeComments: true, // 带HTML注释
         collapseWhitespace: true, // 文本节点出现的空白而崩溃
@@ -63,7 +63,7 @@ var webpackConfig = merge(baseConfig, {
   // webpack 4.x 删除了 CommonsChunkPlugin，以支持两个新的选项（optimization.splitChunks 和 optimization.runtimeChunk）
   optimization: {
     splitChunks: {
-      chunks: "initial", // 必须三选一： "initial" | "all"(默认) | "async" 
+      chunks: "all", // 必须三选一： "initial" | "all"(默认) | "async" 
       minSize: 0, // 最小尺寸，默认0
       minChunks: 1, // 最小 chunk ，默认1
       maxAsyncRequests: 1, // 最大异步请求数， 默认1
@@ -72,14 +72,14 @@ var webpackConfig = merge(baseConfig, {
       cacheGroups: { // 这里开始设置缓存的 chunks
           common: {
             name: 'common',
-            chunks: 'all',
+            chunks: 'initial',
             // minSize: 1,
             minChunks: 2,
             enforce: true,
             priority: -20, // 缓存组优先级
           },
           vendor: { // key 为entry中定义的 入口名称
-            chunks: "all", // 必须三选一： "initial" | "all" | "async"(默认) 
+            chunks: "initial", // 必须三选一： "initial" | "all" | "async"(默认) 
             test: /react|react-router|redux/, // 正则规则验证，如果符合就提取 chunk
             name: "vendor", // 要缓存的 分隔出来的 chunk 名称 
             minSize: 0,

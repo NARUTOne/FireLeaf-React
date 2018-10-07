@@ -53,7 +53,7 @@ var baseConfig = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: 'babel-loader?cacheDirectory', // 缓存loader执行结果
         include: [utils.resolve('src')],
         exclude: /node_modules/
       },

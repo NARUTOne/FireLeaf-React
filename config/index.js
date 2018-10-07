@@ -19,7 +19,7 @@ module.exports = {
     buildPath: path.resolve(__dirname, '../dist'), // 打包文件path 
     assetsPublicPath: '/', // 资源path
     assetsSubDirectory: 'static', // 项目资源目录
-    productionSourceMap: true,
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
     domain: 'fireLeaf'
