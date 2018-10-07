@@ -1,5 +1,3 @@
-@import 'variables.less';
-
 // 滚动条
 /* 整体部分 */
 ::-webkit-scrollbar {
@@ -72,13 +70,20 @@ ul, li {
   list-style: none;
 }
 
+html, body, #app, .wrapper {
+  width: 100%;
+}
 #app {
   display: flex;
 }
 
 .wrapper {
+  display: flex;
   animation: wrapper--fade .25s cubic-bezier(.455, .03, .515, .955);
   min-height: 100vh;
+}
+
+.page {
   display: flex;
   flex: 1;
 }

@@ -22,5 +22,9 @@
     "unit-no-unknown": null,
     "no-descending-specificity": null,
     "value-list-max-empty-lines": null
-  }
+  },
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx"
+  ]
 }

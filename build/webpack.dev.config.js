@@ -20,6 +20,12 @@ var port = process.argv.slice(2)[0] || CONFIG.dev.host;
 module.exports = merge.smart(baseConfig, {
   mode: 'development',
 	cache: true,
+	entry: {
+		app: [
+			'react-hot-loader/patch',
+			path.join(__dirname, '../src/index.js')
+		]
+	},
 	output: {
 		filename: pnamePath +'static/js/[name].[hash:8].js'
 	},
@@ -40,7 +46,7 @@ module.exports = merge.smart(baseConfig, {
 			filename: 'index.html',
 			template: 'template.html',
 			inject: true,
-			favicon: path.join(__dirname, '../favicon.ico')
+			favicon: path.join(__dirname, 'favicon.ico')
 		}),
 		// copy custom static assets
     new CopyWebpackPlugin([

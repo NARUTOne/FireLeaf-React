@@ -14,6 +14,22 @@ var CONFIG = require('../config/index');
 
 var pnamePath = utils.pnamePath;
 
+// 获取theme
+const fs = require('fs');
+const pkgPath = path.resolve(__dirname, './package.json');
+const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {};
+let theme = {};
+if (pkg.theme && typeof pkg.theme === 'string') {
+  let cfgPath = pkg.theme;
+  if (cfgPath.charAt(0) === '.') {
+    cfgPath = path.resolve(__dirname, cfgPath);
+  }
+  const getThemeConfig = require(cfgPath);
+  theme = getThemeConfig();
+} else if (pkg.theme && typeof pkg.theme === 'object') {
+  theme = pkg.theme;
+}
+
 var baseConfig = {
   entry: {
     app: path.join(__dirname, '../src/index.js')
@@ -30,14 +46,14 @@ var baseConfig = {
     alias: {
       '@': utils.resolve('src'),
       utils: path.resolve(__dirname, '../src/utils'),
-      components: path.resolve(__dirname, '../src/components')
+      static: path.resolve(__dirname, '../static')
     }
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: 'babel-loader?cacheDirectory', // 缓存loader执行结果
         include: [utils.resolve('src')],
         exclude: /node_modules/
       },
@@ -80,7 +96,15 @@ var baseConfig = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'less-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              "sourceMap": true,
+              "modules": false,
+              "modifyVars": theme,
+              'javascriptEnabled': true
+            }
+          }
         ]
       }
     ]
@@ -90,8 +114,8 @@ var baseConfig = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: pnamePath +'static/css/[name].[contenthash].css',
       chunkFilename: pnamePath +'static/css/[id].[contenthash].css',
+      filename: pnamePath +'static/css/[name].[contenthash].css'
     }),
     new StyleLintPlugin({
       // 正则匹配想要lint监测的文件

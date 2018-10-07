@@ -2,9 +2,6 @@
  * redux
  */
 
-import { combineReducers } from 'redux';
-import home from './reducer/home';
+import reduces from './reducer';
 
-export default combineReducers({
-  home
-});
+export default reduces;
