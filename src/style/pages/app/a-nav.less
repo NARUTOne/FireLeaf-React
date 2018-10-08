@@ -1,0 +1,47 @@
+.nav-dark {
+  background-color: @dark-bg;
+  color: #fff;
+  .ant-menu-dark {
+    &.ant-menu-inline {
+      .ant-menu-item-selected, .ant-menu-item-active {
+        background-color: @default-color !important;
+      }
+    }
+    .ant-menu-item {
+      &:hover {
+        background-color: @grad-color !important;
+      }
+    }
+  }
+}
+
+.nav-light {
+  background-color: @light;
+}
+
+.nav-default {
+  background-color: @nav-color !important;
+  .ant-menu {
+    &.ant-menu-inline {
+      .ant-menu-item-selected, .ant-menu-item-active {
+        background-color: @default-color !important;
+        color: #fff;
+        a {
+          color: #fff;
+          &:hover {
+            color: @default-color;
+          }
+        }
+      }
+    }
+    .ant-menu-item {
+      &:hover {
+        background-color: @grad-color !important;
+        color: #fff;
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}

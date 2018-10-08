@@ -1,107 +1,12 @@
-.sider-logo-default {
-  background: url('~static/imgs/logo.png') no-repeat left center;
-  background-size: 36px 46px;
-}
-
-.sider-logo-fff {
-  background: url('~static/imgs/logo-fff.png') no-repeat left center;
-  background-size: 36px 46px;
-}
-
-.sider {
-  .logo {
-    display: block;
-    line-height: 48px;
-    height: 48px;
-    padding-left: 42px;
-    border-radius: 3px;
-    margin: 8px;
-    font-family: cursive;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .logo-max {
-    .sider-logo-default;
-  }
-  .logo-min {
-    .sider-logo-default;
-    padding-left: 0;
-    background-position: center !important;
-    background-size: 46px 46px !important;
-  }
-}
-
 .sider-dark {
   background-color: @dark-bg;
   color: #fff;
-  .logo-max {
-    .sider-logo-fff;
-  }
-  .logo-min {
-    .sider-logo-fff;
-  }
-  .ant-menu-dark {
-    &.ant-menu-inline {
-      .ant-menu-item-selected, .ant-menu-item-active {
-        background-color: @default-color !important;
-      }
-    }
-    .ant-menu-item {
-      &:hover {
-        background-color: @grad-color !important;
-      }
-    }
-  }
 }
 
 .sider-light {
   background-color: @light;
-  .ant-menu-light {
-    &.ant-menu-inline {
-      .ant-menu-item-selected, .ant-menu-item-active {
-        background-color: @default-color !important;
-      }
-    }
-    .ant-menu-item {
-      &:hover {
-        background-color: @grad-color !important;
-      }
-    }
-  }
 }
 
 .sider-default {
   background-color: @sider-color !important;
-  .logo {
-    color: #fff;
-  }
-  .logo-max {
-    .sider-logo-fff;
-  }
-  .logo-min {
-    .sider-logo-fff;
-  }
-  .ant-menu {
-    &.ant-menu-inline {
-      .ant-menu-item-selected, .ant-menu-item-active {
-        background-color: @default-color !important;
-        color: #fff;
-        a {
-          color: #fff;
-          &:hover {
-            color: @default-color;
-          }
-        }
-      }
-    }
-    .ant-menu-item {
-      &:hover {
-        background-color: @grad-color !important;
-        color: #fff;
-        a {
-          color: #fff !important;
-        }
-      }
-    }
-  }
 }

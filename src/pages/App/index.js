@@ -10,6 +10,7 @@ import AHeader from './AHeader';
 import ASider from './ASider';
 import ABody from './ABody';
 import AFooter from './AFooter';
+import BreadcrumpCustom from './BreadcrumpCustom/';
 import auth from '@/utils/auth';
 
 const {refreshLogin} = loginAction;
@@ -55,6 +56,7 @@ class App extends Component {
           <Layout>
             <AHeader toggle={this.toggle} open={this.state.collapsed}></AHeader>
             <ABody>
+              <BreadcrumpCustom></BreadcrumpCustom>
               <div className="page-body">
                 <RenderRouter routers={routers} login={login}></RenderRouter>
               </div>              
