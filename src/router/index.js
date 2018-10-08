@@ -18,7 +18,7 @@ const routerList = routers.map((item, index) => {
     return <Route
       exact={item.exact}
       path={item.path} 
-      render={(props) => item.redirectUrl ? <Redirect to={item.redirectUrl} push /> :<ComponentPage {...props} routers={item.children}/>}  
+      render={(props) => item.redirectUrl ? <Redirect to={item.redirectUrl} push /> :<ComponentPage {...props}/>}  
       key={'page' + index + item.path}/>;
   }
   return <Route component={ComponentPage} key={'page' + index}/>;

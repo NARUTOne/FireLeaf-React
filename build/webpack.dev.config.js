@@ -46,7 +46,7 @@ module.exports = merge.smart(baseConfig, {
 			filename: 'index.html',
 			template: 'template.html',
 			inject: true,
-			favicon: path.join(__dirname, 'favicon.ico')
+			favicon: path.join(__dirname, '../favicon.ico')
 		}),
 		// copy custom static assets
     new CopyWebpackPlugin([
