@@ -41,12 +41,8 @@ class App extends Component {
   }
 
   render () {
-    const {location, routers, user, isLogin} = this.props;
+    const {location, routers} = this.props;
     const path = location.pathname;
-    const login = {
-      user,
-      isLogin
-    };
 
     // console.log(location);
     return (
@@ -58,7 +54,7 @@ class App extends Component {
             <ABody>
               <BreadcrumpCustom></BreadcrumpCustom>
               <div className="page-body">
-                <RenderRouter routers={routers} login={login}></RenderRouter>
+                <RenderRouter routers={routers}></RenderRouter>
               </div>              
             </ABody>
             <AFooter></AFooter>

@@ -59,13 +59,13 @@ class NavCustom extends Component {
   renderNav(navData) {
     return navData.map((item) => {
       if(item.children && item.children.length) {
-        return (<SubMenu key={item.key} title={<span><Icon type={item.icon} /><span className="nav-text">{item.name}</span></span>}>
+        return (<SubMenu key={item.key} title={<span>{item.icon ? <Icon type={item.icon} /> : null}<span className="nav-text">{item.name}</span></span>}>
           {this.renderNav(item.children)}
         </SubMenu>);
       }
       else {
         return (<Menu.Item key={item.key}>
-          <Link to={item.href}><Icon type={item.icon} /><span className="nav-text">{item.name}</span></Link>
+          <Link to={item.href}>{item.icon ? <Icon type={item.icon} /> : null}<span className="nav-text">{item.name}</span></Link>
         </Menu.Item>);
       }
     });
