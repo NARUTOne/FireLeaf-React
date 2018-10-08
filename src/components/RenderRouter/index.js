@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 import auth from '@/utils/auth';
 
 // PureComponent 采用导致Route无法更新
@@ -13,7 +14,8 @@ class RenderRouter extends Component {
     return component;
   }
   render() {
-    const {login} = this.props;
+    const {isLogin, user} = this.props;
+    const login = {isLogin, user};
     return (
       <Switch>
         {this.props.routers.map((item, index) => {
@@ -29,5 +31,10 @@ class RenderRouter extends Component {
   }
 }
 
-export default RenderRouter;
+const mapStateToPorps = state => {
+  const {login} = state;
+  return Object.assign({}, login);
+};
+
+export default connect(mapStateToPorps)(RenderRouter);
 
