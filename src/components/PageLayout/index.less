@@ -1,0 +1,20 @@
+.page-layout {
+  .page--layout-header {
+    position: relative;
+    margin-bottom: 32px;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -16px;
+      z-index: 10;
+      border: 1px solid #dddee1;
+    }
+  }
+  .page-layout-body {
+    padding: 8px 0;
+  }
+  .page-layout-actions {
+    padding: 8px 0;
+  }
+}
