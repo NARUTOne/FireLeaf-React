@@ -237,11 +237,7 @@ function param2Obj (paramsString) {
 }
 
 
-const util = function () {
-  this.name = 'tools';
-};
-
-util.prototype = {
+export {
   isObject,
   isArray,
   numPoints,
@@ -261,6 +257,3 @@ util.prototype = {
   param2Obj
 };
 
-const tools = new util();
-
-export default tools;

@@ -131,7 +131,7 @@ npm run build
 
 ## DEMO示例 (线上查看敬请期待:smile:)
 
-- [https://github.com/NARUTOne/redux-react-demo](https://github.com/NARUTOne/redux-react-demo)
+- [https://github.com/NARUTOne/FLeaf-react-admin](https://github.com/NARUTOne/FLeaf-react-admin)
 
 ## 参考
 
