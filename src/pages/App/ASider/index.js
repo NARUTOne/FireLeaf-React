@@ -46,7 +46,6 @@ class ASider extends Component {
       trigger={null}
       breakpoint="lg"
       collapsed={this.state.collapsed}
-      style="overflowY: 'auto'"
       collapsedWidth={80}
       width={210}
       theme={styleTheme}
