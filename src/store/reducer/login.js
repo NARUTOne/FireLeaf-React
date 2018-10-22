@@ -9,28 +9,37 @@ const {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   LOGOUT_SUCCESS,
-  LOGIN_REFRESH
+  LOGIN_REFRESH,
+  LOGIN_PADDING
 } = types;
 
 const initialState = {
   user: null,
-  isLogin: false
+  isLogin: false,
+  loading: false
 };
 
 export default function login (state = initialState, action={}) {
   const {msg} = action.data || {};
   switch (action.type) {
+    case LOGIN_PADDING:
+      return Object.assign({}, state, {
+        user: null,
+        isLogin: false,
+        loading: true
+      });
     case LOGIN_SUCCESS:
       auth.register(action.data);
-      return Object.assign({}, state, {user: action.data, isLogin: true});
+      return Object.assign({}, state, {user: action.data, isLogin: true, loading: false});
     case LOGIN_REFRESH:
-      return {...state, user: action.data, isLogin: true};
+      return {...state, user: action.data, isLogin: true, loading: false};
     case LOGIN_ERROR:
       message.error(action.err, 3);
       return {
         ...state,
         user: null,
-        isLogin: false
+        isLogin: false,
+        loading: false
       };
     case LOGOUT_SUCCESS:
       auth.destroy();

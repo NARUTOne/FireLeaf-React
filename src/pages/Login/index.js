@@ -7,7 +7,7 @@ import {loginAction} from '@/store/action/';
 import {systemName} from 'utils/config';
 
 const FormItem = Form.Item;
-const {toLogin, loginError} = loginAction;
+const {toLogin, loginError, logining} = loginAction;
 
 class Login extends Component {
   constructor () {
@@ -34,6 +34,7 @@ class Login extends Component {
         new Promise((resolve, reject) => {
           if(values.userName == 'admin' && values.password == 'admin123') {
             resolve(values);
+            this.props.logining();
           }
           else {
             const err = '用户名或密码错误！';
@@ -75,7 +76,7 @@ class Login extends Component {
                 )}
               </FormItem>
               <FormItem>                 
-                <Button type="primary" htmlType="submit" className="login-form-button">
+                <Button type="primary" htmlType="submit" className="login-form-button" loading={this.props.loading}>
                   登 录
                 </Button>
               </FormItem>
@@ -106,7 +107,8 @@ function mapDispatchToProps (dispatch) {
     toLogin: (params) => {
       toLogin(params, dispatch);
     },
-    loginError: bindActionCreators(loginError, dispatch)
+    loginError: bindActionCreators(loginError, dispatch),
+    logining: bindActionCreators(logining, dispatch)
   };
 }
 

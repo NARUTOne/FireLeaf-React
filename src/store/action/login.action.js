@@ -11,6 +11,13 @@ export function toLogin (params, dispatch) {
   });
 }
 
+export function logining (params) {
+  return {
+    type: types.LOGIN_PADDING,
+    params
+  };
+}
+
 export function loginError (err) {
   return {
     type: types.LOGIN_ERROR,
