@@ -8,15 +8,17 @@ var express = require('express');
 var path = require('path');
 var webpack = require('webpack');
 var rm = require('rimraf');
+var proxyMiddleware = require('http-proxy-middleware');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var WebpackConfig = require('../build/webpack.dev.config.js');
 var CONFIG = require('../config/index');
 
+var proxyTable = CONFIG.dev.proxyTable;
 var app = express();
 var port = process.argv.slice(2)[0] || CONFIG.dev.host;
 var uri = 'http://localhost:' + port;
- 
+
 rm.sync(path.resolve(__dirname, '..', CONFIG.build.buildPath));
 
 // add hot-reload related code to entry chunks
@@ -40,10 +42,19 @@ const hotMiddleWare = webpackHotMiddleware(compiler);
 app.use(devMiddleware);
 app.use(hotMiddleWare);
 
+// proxy api requests
+Object.keys(proxyTable).forEach(function (context) {
+  let options = proxyTable[context];
+  if (typeof options === 'string') {
+    options = { target: options };
+  }
+  app.use(proxyMiddleware(options.filter || context, options));
+});
+
 /**
  * browserHistory 下，静态资源加载
  */
-// //加载指定目录静态资源 
+// //加载指定目录静态资源
 var resourcePath = path.resolve(__dirname, '..', CONFIG.build.buildPath);
 app.use(express.static(resourcePath));
 // //配置任何请求都转到index.html，而index.html会根据Router规则去匹配任何一个route
