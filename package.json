@@ -28,7 +28,7 @@
     "url": "https://github.com/NARUTOne/FireLeaf-React-Scaffold/issues"
   },
   "homepage": "https://github.com/NARUTOne/FireLeaf-React-Scaffold#readme",
-  "theme": "./config/theme.js",
+  "theme": "../config/theme.js",
   "devDependencies": {
     "autoprefixer": "^9.1.4",
     "babel-core": "^6.26.3",

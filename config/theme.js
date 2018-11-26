@@ -8,8 +8,8 @@ module.exports = () => {
   return {
     'primary-color': defaultColor,
     'link-color': defaultColor,
-    'border-radius-base': '3px',    
-    'menu-collapsed-width': '70px',
+    'border-radius-base': '3px',
+    'menu-collapsed-width': '80px',
   };
 };
 

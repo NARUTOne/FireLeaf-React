@@ -16,7 +16,7 @@ var pnamePath = utils.pnamePath;
 
 // 获取theme
 const fs = require('fs');
-const pkgPath = path.resolve(__dirname, './package.json');
+const pkgPath = path.resolve(__dirname, '../package.json');
 const pkg = fs.existsSync(pkgPath) ? require(pkgPath) : {};
 let theme = {};
 if (pkg.theme && typeof pkg.theme === 'string') {
