@@ -1,6 +1,16 @@
 # LOG
 
-> 项目日历
+> 项目日志
+
+`2018-11-27`
+
+- ➕添加pack
+  - enquire-js : 窗口mobile判断
+  - memoize-one : 一次记忆化返回
+  - path-to-regexp : path-url正则
+  - react-container-query : 媒体查询 响应式组件
+  - react-document-title : SPA单页title
+- 🚀 升级 antd 3.10.9
 
 `2018-10-08`
 

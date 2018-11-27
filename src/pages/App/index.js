@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { ContainerQuery } from 'react-container-query';
+import { enquireScreen, unenquireScreen } from 'enquire-js';
 import RenderRouter from '@/components/RenderRouter/';
 import {Layout} from 'antd';
 import {loginAction} from '@/store/action/';
@@ -15,11 +17,36 @@ import auth from '@/utils/auth';
 
 const {refreshLogin} = loginAction;
 
+const query = {
+  'screen-xs': {
+    maxWidth: 575,
+  },
+  'screen-sm': {
+    minWidth: 576,
+    maxWidth: 767,
+  },
+  'screen-md': {
+    minWidth: 768,
+    maxWidth: 991,
+  },
+  'screen-lg': {
+    minWidth: 992,
+    maxWidth: 1199,
+  },
+  'screen-xl': {
+    minWidth: 1200,
+    maxWidth: 1599,
+  },
+  'screen-xxl': {
+    minWidth: 1600,
+  },
+};
 class App extends Component {
   constructor () {
     super();
     this.state = {
-      collapsed: false
+      collapsed: false,
+      isMobile: false
     };
   }
 
@@ -32,6 +59,21 @@ class App extends Component {
     }
 
     return Object.assign({}, prevState);
+  }
+
+  componentDidMount () {
+    this.enquireHandler = enquireScreen(mobile => {
+      const { isMobile } = this.state;
+      if (isMobile !== mobile) {
+        this.setState({
+          isMobile: mobile,
+        });
+      }
+    });
+  }
+
+  componentWillUnmount () {
+    unenquireScreen(this.enquireHandler);
   }
 
   toggle = () => {
