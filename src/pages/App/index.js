@@ -58,7 +58,8 @@ class App extends Component {
     this.state = {
       collapsed: false,
       isMobile: false,
-      openKeys: []
+      openKeys: [],
+      selectedKey: ''
     };
   }
 
@@ -150,7 +151,6 @@ class App extends Component {
                   collapsed={this.state.collapsed}
                   handleOpenChange={this.handleOpenChange}
                   onCollapse={this.toggle}
-                  path={pathname}
                   menuData={navList}
                   {...defaultProps}></ASider>
                 <Layout>
