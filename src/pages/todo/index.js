@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import List from './List';
 import {Input, Button } from 'antd';
 
@@ -26,11 +27,13 @@ class Todo extends Component {
   }
 
   render() {
+    const {pathname} = this.props.location;
     const { state } = this;
     const { text, list } = state;
     return (
       <div className="todos">
         <h2>TODO-LIST</h2>
+        <h3>{pathname}</h3>
         <div className='todo-box'>
           <Input style={{width: '200px'}} addonBefore='/' value={text} onChange={e => this.setState({'text': e.target.value})}/>
           <Button onClick={() => {this.handleAdd();}} type="primary">添加</Button>
@@ -41,4 +44,4 @@ class Todo extends Component {
   }
 }
 
-export default Todo;
+export default withRouter(Todo);

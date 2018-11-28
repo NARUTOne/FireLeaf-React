@@ -236,6 +236,30 @@ function param2Obj (paramsString) {
   return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
 }
 
+/**
+ * 
+ * @param {*} treeData 
+ * @param {*} values 
+ * @param {*} key 
+ */
+const getNodeByKeys = (treeData = [], values = [], key = 'key') => {
+  const nodes = [];
+  const findNodes = (treeData) => {
+    treeData.forEach(item => {
+      if (values.indexOf(item[key]) >= 0) {
+        nodes.push(item);
+      }
+      if (item.children && item.children.length) {
+        findNodes(item.children);
+      }
+    });
+  };
+
+  findNodes(treeData);
+
+  return nodes;
+};
+
 
 export {
   isObject,
@@ -254,6 +278,7 @@ export {
   rangeDate,
   xhrSetData,
   arrayTreeCallBack,
-  param2Obj
+  param2Obj,
+  getNodeByKeys
 };
 

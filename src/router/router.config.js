@@ -56,6 +56,12 @@ const Todo = Loadable({
   delay: 1000
 });
 
+const DEMOPage = Loadable({
+  loader: () => import('../pages/DEMOPage/'),
+  loading: LoadingPage,
+  delay: 1000
+});
+
 const Login = Loadable({
   loader: () => import('../pages/Login/'),
   loading: LoadingPage,
@@ -69,6 +75,16 @@ const NotFound = Loadable({
 });
 
 // routers
+/**
+ * {
+ *    path: '',
+ *    component: 组件,
+ *    title: 导航文本（面包屑）,
+ *    disabled: 禁止导航,
+ *    openKey: 展开key,
+ *    selectedKey: 选中key
+ * }
+ */
 export default [
   {
     redirectUrl: '/app/home',
@@ -82,13 +98,30 @@ export default [
       {
         component: Home,
         title: '首页',
-        path: '/app/home'
+        path: '/app/home',
+        selectedKey: '/app/home'
       },
       {
         component: Todo,
         title: 'todo',
-        path: '/app/todo'
+        path: '/app/todo',
+        selectedKey: '/app/todo'
       },
+      {
+        component: DEMOPage,
+        title: 'DEMO',
+        path: '/app/demo',
+        disabled: true,
+        children: [
+          {
+            component: Todo,
+            title: 'demo-todo',
+            path: '/app/demo/todo',
+            selectedKey: '/app/demo/todo',
+            openKey: '/app/demo'
+          }
+        ]
+      }
     ]
   },
   {

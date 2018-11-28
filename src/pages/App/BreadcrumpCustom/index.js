@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import { Breadcrumb } from 'antd';
-import routers from '@/router/router.config';
-import {arrayTreeCallBack} from 'utils/tools';
-
 class BreadcrumbCustom extends Component {
   mapRouters (url) {
-    let current = null;
-    arrayTreeCallBack(routers, (item) => {
-      if (url === item.path) {
-        current = item;
-      }
-      return item;
-    });
-
-    return current;
+    return this.props.mapData.find(item => item.path === url);
   }
 
   renderBreadcrumb () {
@@ -25,7 +15,7 @@ class BreadcrumbCustom extends Component {
       return (
         <Breadcrumb.Item key={url}>
           {(current && current.disabled) ? current.title : <Link to={url}>
-            {current.title}
+            {current ? current.title : 'no title'}
           </Link>}
         </Breadcrumb.Item>
       );
@@ -52,5 +42,9 @@ class BreadcrumbCustom extends Component {
     );
   }
 }
+
+BreadcrumbCustom.propTypes = {
+  mapData: PropTypes.array
+};
 
 export default withRouter(BreadcrumbCustom);

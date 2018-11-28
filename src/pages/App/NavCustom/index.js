@@ -6,41 +6,43 @@ import { Menu, Icon } from 'antd';
 
 const SubMenu = Menu.SubMenu;
 
+// Allow menu.js config icon as string or ReactNode
+//   icon: 'setting',
+//   icon: 'http://demo.com/icon.png',
+//   icon: <Icon type="setting" />,
+const getIcon = icon => {
+  if (typeof icon === 'string' && icon.indexOf('http') === 0) {
+    return <img src={icon} alt="icon" className="menu-icon" />;
+  }
+  if (typeof icon === 'string') {
+    return <Icon type={icon} />;
+  }
+  return icon;
+};
+
 class NavCustom extends Component {
   state = {
-    navList: [],
-    openKey: '',
     selectedKey: ''
   };
 
   componentDidMount() {
-    this.setState({
-      navList: [...this.props.data]
-    });
     this.setMenuOpen(this.props);
   }
 
+  // 刷新
   static getDerivedStateFromProps (nextProps, prevState) { // nextProps, prevState
-    if (prevState.navList !== nextProps.data) {
-      
+    if (nextProps.selectedKey !== prevState.selectedKey) {
       return {
-        navList: nextProps.data
+        selectedKey: prevState.selectedKey || nextProps.selectedKey
       };
     }
     return null;
   }
 
-  componentDidUpdate() {
-    if (this.state.navList === null) {
-      this.setMenuOpen(this.props);
-    }
-  }
-
   setMenuOpen = props => {
-    const path = props.location.pathname;
+    const {selectedKey} = props;
     this.setState({
-      openKey: path,
-      selectedKey: path
+      selectedKey: selectedKey
     });
   };
 
@@ -48,12 +50,45 @@ class NavCustom extends Component {
     this.setState({
       selectedKey: e.key
     });
-
   };
-  openMenu = v => {
-    this.setState({
-      openKey: v[v.length - 1]
-    });
+
+  /**
+   * 判断是否是http链接.返回 Link 或 a
+   * Judge whether it is http link.return a or Link
+   * @memberof SiderMenu
+   */
+  getMenuItemPath = item => {
+    const name = item.name;
+    const itemPath = item.href;
+    const icon = getIcon(item.icon);
+    const { target } = item;
+    // Is it a http link
+    if (/^http(s?):\/\//.test(itemPath)) {
+      return (
+        <a href={itemPath} target={target || '_blank'}>
+          {icon}
+          <span className="nav-text">{name}</span>
+        </a>
+      );
+    }
+    const { location, isMobile, onCollapse } = this.props;
+    return (
+      <Link
+        to={itemPath}
+        target={target}
+        replace={itemPath === location.pathname}
+        onClick={
+          isMobile
+            ? () => {
+                onCollapse(true);
+              }
+            : undefined
+        }
+      >
+        {icon}
+        <span className="nav-text">{name}</span>
+      </Link>
+    );
   };
 
   renderNav(navData) {
@@ -65,37 +100,47 @@ class NavCustom extends Component {
       }
       else {
         return (<Menu.Item key={item.key}>
-          <Link to={item.href}>{item.icon ? <Icon type={item.icon} /> : null}<span className="nav-text">{item.name}</span></Link>
+          {this.getMenuItemPath(item)}
         </Menu.Item>);
       }
     });
   }
 
   render () {
-    const {theme} = this.props;
+    const {menuData, theme, openKeys, style} = this.props;
 
     const styleTheme = theme ? theme : 'default'; 
     const classNameStyle = classnames('a-nav', {
       [`nav-${styleTheme}`]: true
     });
+    let props = {};
+    if (openKeys) {
+      props = {
+        openKeys,
+      };
+    }
     return (
       <div className={classNameStyle}>
         <Menu
+          key="Menu"
           onClick={this.menuClick}
           mode={this.props.mode}
           selectedKeys={[this.state.selectedKey]}
+          onOpenChange={this.props.handleOpenChange}
           theme={styleTheme}
+          style={style}
+          {...props}
         >
-          {this.renderNav(this.state.navList)}
+          {this.renderNav(menuData)}
         </Menu>
-      </div>      
+      </div>
     );
   }
 }
 
 NavCustom.propTypes = {
   location: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired,
+  menuData: PropTypes.array.isRequired,
   theme: PropTypes.string, // default light dark
   mode: PropTypes.string // vertical vertical-right horizontal inline
 };
