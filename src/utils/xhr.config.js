@@ -1,4 +1,4 @@
-import xhr from './xhr';
+import xhr from 'axhr';
 import {message} from 'antd';
 import auth from './auth';
 import {apiBaseUrl} from './config';
