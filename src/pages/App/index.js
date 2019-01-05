@@ -20,7 +20,9 @@ import routers from '@/router/router.config';
 import BreadcrumpCustom from './BreadcrumpCustom/';
 import auth from '@/utils/auth';
 import {systemName} from '@/utils/config';
-import {arrayTreeCallBack, getNodeByKeys} from 'utils/tools';
+// import {arrayTreeCallBack, getNodeByKeyValues} from 'flo-utils';
+import getNodeByKeyValues from 'flo-utils/lib/collection/getNodeByKeyValues';
+import arrayTreeCallBack from 'flo-utils/lib/collection/arrayTreeCallBack';
 import navList from '@/mock/navs';
 
 const {refreshLogin} = loginAction;
@@ -91,7 +93,7 @@ class App extends Component {
 
   setMenu = props => {
     const path = props.location.pathname;
-    const nodes = getNodeByKeys(routers, [path], 'path');
+    const nodes = getNodeByKeyValues(routers, [path], 'path');
     if (!nodes.length) return;
     const {openKey, selectedKey} = nodes[0];
 
