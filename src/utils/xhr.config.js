@@ -2,7 +2,7 @@ import xhr from 'axhr';
 import {message} from 'antd';
 import auth from './auth';
 import {apiBaseUrl} from './config';
-import newHistory from './history';
+import {history} from '@/router/BrowsweRouter';
 
 let apiUrl = '';
 
@@ -39,7 +39,7 @@ xhr.success = (response) => {
       break;
     case '401':
       auth.destroy();
-      newHistory.push('/login');
+      history.push('/login');
       isSuccess = false;
       break;
     default:
